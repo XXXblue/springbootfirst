@@ -3,17 +3,16 @@ package com.xjy.springbootfirst.controller;
 import com.xjy.springbootfirst.enums.ResultEnum;
 import com.xjy.springbootfirst.exception.MyException;
 import com.xjy.springbootfirst.pojo.Person;
+import com.xjy.springbootfirst.pojo.Sysuser;
 import com.xjy.springbootfirst.pojo.vo.PersonQueryVo;
 import com.xjy.springbootfirst.properties.GirlProperties;
+import com.xjy.springbootfirst.service.TestService;
 import com.xjy.springbootfirst.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.beanvalidation.BeanValidationPostProcessor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -31,6 +30,8 @@ public class HelloController {
     private String content;
     @Autowired
     private GirlProperties girlProperties;
+    @Autowired
+    private TestService testService;
 
     @RequestMapping(value = {"/hello","/hi"},method = RequestMethod.GET)
     public String say(){
@@ -68,5 +69,17 @@ public class HelloController {
 //        模拟系统的异常
 //        int a=1/0;
         return null;
+    }
+    //mapper接口测试
+    @GetMapping(value = "/test")
+    public String test2(){
+       Sysuser sysuser =  testService.getUserById();
+       return "ok";
+    }
+
+    @GetMapping(value = "/add")
+    public String test3(){
+        testService.addUser();
+        return "ok";
     }
 }

@@ -1,9 +1,38 @@
+#基本配置
 server:
   port: 8080
   servlet:
       context-path: "/springbootfirst"
+#====================================================================== 这部分是自定义的，第一次学配置文件的，删了也能运行start
+#自定义配置组的配置
 girl:
   age: 16
   cupSize: B
+#自定义普通配置
 cupSize: 15
+# 自定义嵌套属性的配置
 content: "cupSize:${cupSize}"
+#======================================================================这部分是自定义的，第一次学配置文件的，删了也能运行end
+# 数据源的配置
+spring:
+  druid:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/designrule?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+    username: root
+    password: root
+    #最大连接数
+    max-active: 30
+    min-idle: 5
+    max-wait: 10000
+    validation-query: SELECT 'x'
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+
+#    mybatis配置
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
+
+
+
+
