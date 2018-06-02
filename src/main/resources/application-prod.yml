@@ -1,0 +1,9 @@
+server:
+  port: 8080
+  servlet:
+      context-path: "/springbootfirst"
+girl:
+  age: 16
+  cupSize: B
+cupSize: 15
+content: "cupSize:${cupSize}"
