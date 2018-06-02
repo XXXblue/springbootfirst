@@ -1,8 +1,11 @@
 package com.xjy.springbootfirst.controller;
 
+import com.xjy.springbootfirst.enums.ResultEnum;
+import com.xjy.springbootfirst.exception.MyException;
 import com.xjy.springbootfirst.pojo.Person;
 import com.xjy.springbootfirst.pojo.vo.PersonQueryVo;
 import com.xjy.springbootfirst.properties.GirlProperties;
+import com.xjy.springbootfirst.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.BindingResult;
@@ -53,5 +56,17 @@ public class HelloController {
         }
         System.out.println(personQueryVo.getPersonCustom().getAge()+"==="+personQueryVo.getPersonCustom().getName());
         return "ok";
+    }
+
+    //全局异常处理器json处理成功
+    @PostMapping(value = "/exceptiontest")
+    public Result test() throws Exception {
+//        模拟自己的异常
+        if(1==1){
+            throw new MyException(ResultEnum.ONE_TWO_TWO);
+        }
+//        模拟系统的异常
+//        int a=1/0;
+        return null;
     }
 }
