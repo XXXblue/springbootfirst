@@ -28,6 +28,23 @@ spring:
     time-between-eviction-runs-millis: 60000
     min-evictable-idle-time-millis: 300000
 
+  #freemaker配置
+  freemarker:
+    charset: UTF-8
+    content-type: text/html;charset=UTF-8
+    #暴露request的一些参数到变量中
+    expose-request-attributes: true
+     #暴露session的一些参数到变量中
+    expose-session-attributes: true
+    #暴露一些宏的属性
+    expose-spring-macro-helpers: true
+    #后缀
+    suffix: .ftl
+    settings:
+      datetime_format: yyyy-MM-dd HH:mm:ss
+      default_encoding: UTF-8
+
+
 #    mybatis配置
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml

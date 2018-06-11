@@ -1,6 +1,4 @@
 package com.xjy.springbootfirst.exception;
-
-import com.xjy.springbootfirst.aspect.HttpAspect;
 import com.xjy.springbootfirst.utils.Result;
 import com.xjy.springbootfirst.utils.ResultUtil;
 import org.slf4j.Logger;

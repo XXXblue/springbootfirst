@@ -8,8 +8,11 @@ import com.xjy.springbootfirst.pojo.vo.PersonQueryVo;
 import com.xjy.springbootfirst.properties.GirlProperties;
 import com.xjy.springbootfirst.service.TestService;
 import com.xjy.springbootfirst.utils.Result;
+import javafx.print.PaperSource;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.beanvalidation.BeanValidationPostProcessor;
 import org.springframework.web.bind.annotation.*;
@@ -32,8 +35,11 @@ public class HelloController {
     private GirlProperties girlProperties;
     @Autowired
     private TestService testService;
-
-    @RequestMapping(value = {"/hello","/hi"},method = RequestMethod.GET)
+    @RequestMapping(value = "/hello")
+    public String index() {
+        return "Hello World";
+    }
+    @RequestMapping(value = "/hi",method = RequestMethod.GET)
     public String say(){
         return content+girlProperties.getCupSize()+girlProperties.getAge();
     }
@@ -82,4 +88,5 @@ public class HelloController {
         testService.addUser();
         return "ok";
     }
+
 }

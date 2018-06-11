@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @Author: XBlue
  * @Date: Create in 2018/6/120:35
- * @Description:
+ * @Description: 配置切面 aop
  * @Modified By:
  */
 @Aspect
