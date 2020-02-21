@@ -34,6 +34,7 @@ public class HelloControllerTest {
     @Test
     public void getHello() throws Exception {
         //一般这种前端测试没必要写代码，用postman即可
+        //蔡世源
         mvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
 //                期望返回是200响应
                 .andExpect(MockMvcResultMatchers.status().isOk())
